@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# assignment-necxis 🌐🚀
 
-## Getting Started
+This is a **Next.js** application that acts as the companion frontend/backend service for the [expo-fcm-webview](https://github.com/armaankhaan01/expo-fcm-webview) mobile app.
 
-First, run the development server:
+Its main role is to:
+
+- Register FCM tokens sent from the mobile app
+- Subscribe users to topics or channels
+- Send notifications to devices
+- Render a responsive web interface accessible via a WebView
+
+---
+
+## 🔧 Setup Instructions
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/armaankhaan01/assignment-necxis.git
+cd assignment-necxis
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure Firebase (Required)
+
+Create a `.env.local` file and add your Firebase config and google auth credentials
+
+```env
+GOOGLE_CLIENT_ID=google-client-id
+GOOGLE_CLIENT_SECRET=google-client-id
+NEXTAUTH_URL=auth_url
+NEXTAUTH_SECRET=any_random_string_for_jwt_encryption
+FIREBASE_PROJECT_ID=your-project-id
+FIREBASE_CLIENT_EMAIL=your-client-email@your-project-id.iam.gserviceaccount.com
+FIREBASE_PRIVATE_KEY="your-private-key"
+FIREBASE_API_KEY=your-api-key
+FIREBASE_MESSAGING_SENDER_ID=your-sender-id
+FIREBASE_APP_ID=your-app-id
+FIREBASE_SENDER_ID=
+FIREBASE_STORAGE_BUCKET=
+FIREBASE_AUTH_DOMAIN=
+FIREBASE_MEASUREMENT_ID=
+NEXT_PUBLIC_FIREBASE_VAPID_KEY=your-vapid-key
+```
+
+
+---
+
+### 4. Start the app
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+App will run at: [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+You can now open this in a browser or connect to it via the Expo WebView app.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📱 Connect With the Mobile App
 
-To learn more about Next.js, take a look at the following resources:
+To fully utilize this project, pair it with the companion mobile app:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> [Expo FCM WebView Repo](https://github.com/armaankhaan01/expo-fcm-webview)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Make sure the WebView inside the Expo app points to:
 
-## Deploy on Vercel
+```
+http://<your-local-ip>:3000
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔔 Notification Sending (Example API)
+
+You can expose an API route like `/api/sendNotification` to handle POST requests with payloads like:
+
+```json
+{
+  "token": "user-device-token",
+  "title": "Hello",
+  "body": "This is a test message"
+}
+```
+
+Or use [topic messaging](https://firebase.google.com/docs/cloud-messaging/js/topic-messaging) for group notifications.
+
+---
+
+## 🧪 Test & Dev Tools
+
+- Firebase Admin SDK
+- Firebase Cloud Messaging
+- Next.js API routes for server-side logic
+- Integrated with the Expo WebView mobile app
+
+
+## 🤝 Connect with Me
+
+- GitHub: [@armaankhaan01](https://github.com/armaankhaan01)
+- Companion app: [expo-fcm-webview](https://github.com/armaankhaan01/expo-fcm-webview)
+
+---
+
+Built with 🔥 using Next.js + Firebase
+
+```
